@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ARMY Confession Center 💌</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fce7f3;
+      color: #4b0082;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #a21caf;
+    }
+    textarea {
+      width: 80%;
+      height: 100px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 2px solid #a21caf;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #9333ea;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #6b21a8;
+    }
+    .confessions {
+      margin-top: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+    .confession {
+      background-color: #fff;
+      border-left: 6px solid #a21caf;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💌 ARMY Confession Center</h1>
+  <p>Write your BTS confession anonymously and share it with fellow ARMYs!</p>
+
+  <textarea id="confessionInput" placeholder="Write your confession here..."></textarea><br>
+  <button onclick="submitConfession()">Submit Confession</button>
+
+  <div class="confessions" id="confessionList">
+    <!-- Confessions will appear here -->
+  </div>
+
+  <script>
+    const confessionList = document.getElementById("confessionList");
+
+    function submitConfession() {
+      const input = document.getElementById("confessionInput");
+      const confession = input.value.trim();
+
+      if (confession === "") {
+        alert("Please enter a confession before submitting!");
+        return;
+      }
+
+      // Create confession box
+      const div = document.createElement("div");
+      div.className = "confession";
+      div.textContent = confession;
+
+      // Add to the top
+      confessionList.prepend(div);
+
+      // Clear textarea
+      input.value = "";
+    }
+  </script>
+
+</body>
+</html>
